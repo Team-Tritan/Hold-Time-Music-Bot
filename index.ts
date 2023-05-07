@@ -32,7 +32,7 @@ client.on(
       console.log(
         `User joined a voice channel, playing hold music in ${
           newState.guild.name
-        } for ${newState.member!.user.username}}`
+        } for ${newState.member!.user.username}.`
       );
 
       connection = joinVoiceChannel({
