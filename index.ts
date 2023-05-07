@@ -1,4 +1,4 @@
-import { Client, VoiceState } from "discord.js";
+import { ActivityType, Client, VoiceState } from "discord.js";
 import { token, soundclipPath } from "./config";
 import fs from "fs";
 
@@ -17,6 +17,8 @@ const client = new Client({
 let connection: any = null;
 
 client.once("ready", () => {
+  client.user?.setActivity("Hold Time Music", { type: ActivityType.Playing });
+
   console.log(
     "Bot is online and waiting to play hold time music to anyone who joins vc!"
   );
