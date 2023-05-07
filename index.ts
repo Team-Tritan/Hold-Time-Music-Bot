@@ -17,7 +17,7 @@ const client = new Client({
 let connection: any = null;
 
 client.once("ready", () => {
-  client.user?.setActivity("Hold Time Music", { type: ActivityType.Playing });
+  client.user?.setActivity("hold music :)", { type: ActivityType.Playing });
 
   console.log(
     "Bot is online and waiting to play hold time music to anyone who joins vc!"
@@ -29,6 +29,12 @@ client.on(
   async (oldState: VoiceState, newState: VoiceState) => {
     //@ts-ignore
     if (newState.channel && !newState.member.user.bot) {
+      console.log(
+        `User joined a voice channel, playing hold music in ${
+          newState.guild.name
+        } for ${newState.member!.user.username}}`
+      );
+
       connection = joinVoiceChannel({
         channelId: newState.channel.id,
         guildId: newState.guild.id,
